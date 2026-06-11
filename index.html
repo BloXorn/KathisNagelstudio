@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kathis Nagelstudio ✦</title>
+<style>
+  html, body { margin: 0; padding: 0; overflow: hidden; height: 100%; background: #2a1030; }
+  #info {
+    position: fixed; top: 12px; left: 50%; transform: translateX(-50%);
+    color: #fff; font-family: -apple-system, 'Segoe UI', sans-serif;
+    background: rgba(160, 40, 120, 0.75); padding: 10px 18px; border-radius: 16px;
+    font-size: 14px; text-align: center; z-index: 10; max-width: 90%;
+    backdrop-filter: blur(6px); pointer-events: none;
+  }
+  #info b { color: #ffd6f0; }
+  canvas { display: block; }
+</style>
+</head>
+<body>
+<div id="info">
+  <b>💅 Kathis Nagelstudio ✦</b><br>
+  Quest 3: unten auf <b>„ENTER VR"</b> drücken · Trigger = greifen &amp; malen<br>
+  Am Computer: Klick auf Fläschchen/Werkzeug, dann über den Nagel ziehen
+</div>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+<script type="module" src="main.js"></script>
+</body>
+</html>
