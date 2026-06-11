@@ -461,6 +461,41 @@ function fanfare(stars) {
   for (let i = 0; i < Math.max(2, stars + 1); i++) {
     setTimeout(() => beep(notes[i % notes.length], 0.25, 0.18, 'triangle'), i * 140);
   }
+  // danach: DER PICZEL-KLANG für die ✦-Gutschrift
+  setTimeout(piczelKlang, Math.max(2, stars + 1) * 140 + 150);
+}
+
+// DER PICZEL-KLANG — offizieller PICZEL-Sound, wenn ✦ auftauchen
+// (8-Bit-Arpeggio C6→E6→G6→C7, 60% Rechteck + 40% Sinus, Glitzer C8 auf dem Schlusston)
+function piczelKlang() {
+  if (!audio) return;
+  const t0 = audio.currentTime;
+  const tones = [
+    { f: 1046.5, t: 0.0,   decay: 18 },
+    { f: 1318.5, t: 0.055, decay: 18 },
+    { f: 1568.0, t: 0.110, decay: 18 },
+    { f: 2093.0, t: 0.165, decay: 7 },
+  ];
+  const AMP = 0.17;
+  for (const { f, t, decay } of tones) {
+    const end = t0 + t + Math.min(0.55 - t, 5 / decay);
+    for (const [type, share] of [['square', 0.6], ['sine', 0.4]]) {
+      const o = audio.createOscillator(), g = audio.createGain();
+      o.type = type; o.frequency.value = f;
+      g.gain.setValueAtTime(AMP * share, t0 + t);
+      g.gain.setTargetAtTime(0.0001, t0 + t, 1 / decay);
+      o.connect(g).connect(audio.destination);
+      o.start(t0 + t); o.stop(end);
+    }
+    if (f === 2093.0) { // Glitzer auf dem Schlusston
+      const o = audio.createOscillator(), g = audio.createGain();
+      o.type = 'sine'; o.frequency.value = 4186;
+      g.gain.setValueAtTime(AMP * 0.3, t0 + t);
+      g.gain.setTargetAtTime(0.0001, t0 + t, 1 / 9);
+      o.connect(g).connect(audio.destination);
+      o.start(t0 + t); o.stop(end);
+    }
+  }
 }
 
 // ---------- Konfetti ----------
