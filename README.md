@@ -2,13 +2,16 @@
 
 Ein VR-Spiel für die Meta Quest 3 — von PICZEL.
 
-Du stehst in einem rosa Nagelstudio vor einer **riesigen Hand** und erfüllst Kundenwünsche:
+Du stehst in einem rosa Nagelstudio vor **zwei riesigen Händen** (10 Nägel!) und erfüllst Kundenwünsche:
 
 - 🖌️ **8 Nagellack-Fläschchen** — greifen und die Riesen-Nägel anmalen
+- 💕 **4 Muster-Stempel** — Herzchen, Sternchen, Blümchen, Pünktchen auf die Nägel drücken
 - ✨ **Glitzer-Streuer** — über dem Nagel schütteln
 - 💅 **Feile** — macht die Nägel glänzend
 - 🧽 **Schwamm** — wischt alles wieder ab
 - ⭐ **Fertig-Knopf** — die Kundin bewertet dich mit Sternen, du bekommst **✦ Piczel**!
+
+Manche Kundinnen wünschen sich auch ein bestimmtes Muster — steht alles auf dem Wunsch-Schild!
 
 ## So spielst du auf der Quest 3
 
